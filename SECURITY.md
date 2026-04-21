@@ -1,0 +1,1 @@
+For security concerns, contact: connect@thynqit.com
