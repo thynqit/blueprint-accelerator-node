@@ -1,16 +1,16 @@
 <p align="center">
-  <img src="https://dummyimage.com/1200x300/0f172a/ffffff&text=Thynqit+NodeJS+Accelerator" alt="Thynqit Banner"/>
+  <img src="https://dummyimage.com/1200x300/0f172a/ffffff&text=Thynqit+Node.JS+Accelerator" alt="Thynqit Banner"/>
 </p>
 
-<h1 align="center">🚀 Thynqit NodeJS Accelerator</h1>
+<h1 align="center">🚀 Thynqit Node.JS Accelerator</h1>
 <p align="center"><b>Enterprise Backend Architecture Blueprint</b></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Architecture-Enterprise-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/NodeJS-NestJS-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Node.JS-NestJS-red?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cloud-Ready-green?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/License-Proprietary-black?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Usage-Restricted-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Usage-Restricted-red?style=for-the-badge"/>
 </p>
 
 ---
@@ -30,7 +30,7 @@ For collaboration or usage inquiries, please contact Thynqit at connect@thynqit.
 
 ## 📌 Overview
 
-The **Thynqit NodeJS Accelerator** is an enterprise-grade backend blueprint designed to standardize how scalable, secure, and production-ready backend systems should be designed, structured, built and deployed.
+The **Thynqit Node.JS Accelerator** is an enterprise-grade backend blueprint designed to standardize how scalable, secure, and production-ready backend systems should be designed, structured, built and deployed.
 
 Unlike typical boilerplates, this accelerator focuses on:
 
@@ -256,8 +256,8 @@ The Service Layer encapsulates the core business logic of the application, actin
 The Data Layer manages all interactions with persistence systems, abstracting database operations and shielding the rest of the application from underlying storage complexities. It provides a consistent interface for working with both SQL and NoSQL databases, enabling flexibility in choosing the right data store for different use cases. By leveraging ORMs/ODMs, enforcing schema consistency, and supporting migrations, this layer ensures reliable data access, integrity, and long-term maintainability.
 
 #### 🧩 Components
-- SQL (Prisma)
-- NoSQL (MongoDB)
+- SQL (MySQL, PostgreSQL, TypeORM)
+- NoSQL (MongoDB, Mongoose)
 - Migrations
 
 ### 🔗 Cross-Cutting Concerns
@@ -298,7 +298,7 @@ The accelerator is built using a carefully selected set of industry-proven tools
 
 | Capability           | Tools / Frameworks                          | Purpose                                  |
 |----------------------|---------------------------------------------|------------------------------------------|
-| Framework            | NodeJS, NestJS                              | Scalable, modular backend framework      |
+| Framework            | Node.JS, NestJS                             | Scalable, modular backend framework      |
 | Language             | TypeScript                                  | Type safety and maintainability          |
 | API Layer            | NestJS Controllers                          | REST APIs                                |
 | GraphQL              | @nestjs/graphql, Apollo Server              | GraphQL APIs                             |
@@ -515,7 +515,7 @@ This section outlines planned capabilities to further strengthen the accelerator
 
 ---
 
-## 👥 Who Should Use This
+## 👥 Who Should Use Thynqit Accelerator
 
 - 🚀 Startups building scalable backend systems
 - 🏢 Enterprises modernizing architecture
