@@ -292,6 +292,39 @@ The accelerator provides a well-defined set of core capabilities that collective
 
 ---
 
+## 🛠️ Technology Stack Mapping
+
+The accelerator is built using a carefully selected set of industry-proven tools and frameworks to ensure scalability, performance, and maintainability across all layers of the system.
+
+| Capability           | Tools / Frameworks                          | Purpose                                  |
+|----------------------|---------------------------------------------|------------------------------------------|
+| Framework            | NodeJS, NestJS                              | Scalable, modular backend framework      |
+| Language             | TypeScript                                  | Type safety and maintainability          |
+| API Layer            | NestJS Controllers                          | REST APIs                                |
+| GraphQL              | @nestjs/graphql, Apollo Server              | GraphQL APIs                             |
+| WebSockets           | @nestjs/websockets                          | Real-time communication                  |
+| Configuration        | @nestjs/config, dotenv, joi                 | Centralized and validated configuration  |
+| Logging              | pino, nestjs-pino                           | Structured, high-performance logging     |
+| Metrics              | prom-client                                 | Application metrics collection           |
+| Tracing              | OpenTelemetry                               | Distributed tracing                      |
+| Security             | helmet, passport, jwt                       | Security headers and authentication      |
+| Validation           | class-validator, class-transformer          | Request validation and transformation    |
+| Database (SQL)       | MySQL, PostgreSQL                           | Relational databases                     |
+| ORM (SQL)            | TypeORM                                     | ORM for relational databases             |
+| Database (NoSQL)     | MongoDB                                     | Non-relational database                  |
+| ODM (NoSQL)          | Mongoose                                    | ODM for MongoDB                          |
+| Caching              | Redis, ioredis                              | Performance optimization and caching     |
+| Messaging            | Kafka / RabbitMQ                            | Event-driven architecture                |
+| Testing              | Jest, Supertest                             | Unit and integration testing             |
+| CI/CD                | GitHub Actions, Jenkins                     | Build, test, and deployment automation   |
+| Containerization     | Docker                                      | Consistent runtime environment           |
+| Cloud                | AWS / Azure / GCP                           | Cloud deployment                         |
+| API Documentation    | Swagger (OpenAPI), GraphiQL                 | API contract and documentation           |
+| Linting & Formatting | ESLint, Prettier                            | Code quality and consistency             |
+| Git Hooks            | Husky                                       | Pre-commit checks                        |
+
+---
+
 ## 🔐 Security Architecture
 
 The accelerator embeds security as a foundational layer across the system, ensuring that protection mechanisms are integrated from the ground up rather than treated as an afterthought. It establishes a consistent, layered security model that safeguards every interaction point—covering request validation, access control, and traffic management—so that applications built on top inherit secure defaults. This approach reduces the risk of vulnerabilities, enforces standard security practices across teams, and enables systems to scale without compromising on safety or compliance.
@@ -391,24 +424,34 @@ The accelerator follows a well-organized, modular project structure designed to 
     │   ├── database.ts         # Database constants consisting ENUMS
     │   └── error-code.ts       # API application specific error codes
     ├── config/                 
-    │   └── env.ts              # .env wrapper
+    │   ├── env.ts              # .env wrapper
+    │   ├── app-config.ts       # Global constants wrapper
+    │   ├── database-config.ts  # Database constants wrapper
+    │   └── error-config.ts.    # API application error codes wrapper
     ├── common/                 
     │   ├── utils/              # Global utils
-    │   ├── decorators/         # Global decorators
     │   ├── filters/            # Global filters
     │   ├── pipes/              # Global pipes
-    │   ├── guards/             # Global guards
     │   └── exceptions/         # Global exceptions 
     ├── core/                   
     │   ├── logger/             # Logger module
+    │   ├── metrics/            # Prometheus setup
+    │   ├── tracing/            # OpenTelemetry setup
     │   ├── caching/            # Caching module
     │   ├── middleware/         # Middleware module
-    │   └── interceptors/       # Interceptor module
+    │   ├── interceptors/       # Interceptor module   
+    │   └── security/
+    │       ├── guards/         # Global guards
+    │       └── decorators/     # Global decorators
     ├── services/
     │   ├── rest/               # REST API configuration and routes
     │   ├── graphql             # GraphQL endpoints and schema
     │   └── websockets          # WebSockets endpoints
     ├── modules/
+    │   ├── health/             # Health endpoint in REST, GraphQL and WebSockets
+    │   │   ├── health.controller.ts            <-- Only REST    
+    │   │   ├── health.resolver.ts              <-- Only GraphQL
+    │   │   ├── health.gateway.ts               <-- Only WebSockets
     │   ├── country/            # Domain: Country
     │   │   ├── country.module.ts
     │   │   ├── country.service.ts
@@ -421,16 +464,24 @@ The accelerator follows a well-organized, modular project structure designed to 
     │   │   ├── user.resolver.ts                <-- Only GraphQL
     │   │   ├── entities/
     │   │   └── inputs/
-    │   └── config-push/        # Domain: Messaging
+    │   └── messaging/          # Domain: Messaging
     │       ├── messaging.module.ts
     │       ├── messaging.service.ts
     │       └── messaging.gateway.ts          <-- Only WebSockets
     ├── database/
     │   ├── sql/                # SQL database classes
+    │   │   ├── entities/
+    │   │   ├── repositories/
+    │   │   ├── migrations/
+    │   │   └── seed/
     │   └── no-sql/             # NoSQL database classes
+    │       ├── schemas/
+    │       └── repositories/
     ├── test/
     │   ├── unit/               # Unit tests classes
-    │   └── integration         # Integration tests classes    
+    │   ├── integration         # Integration tests classes    
+    │   ├── e2e/                # End-to-end tests
+    │   └── fixtures/           # Test data
     ├── .env
     ├── .gitignore
     ├── package.json
